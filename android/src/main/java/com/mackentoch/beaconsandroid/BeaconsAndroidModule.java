@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.RemoteException;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import com.facebook.react.bridge.Callback;
@@ -13,6 +13,7 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
@@ -367,7 +368,7 @@ public class BeaconsAndroidModule extends ReactContextBaseJavaModule implements 
                 b.putDouble("distance", beacon.getDistance());
                 b.putString("proximity", getProximity(beacon.getDistance()));
             }
-          a.pushMap(b);
+          a.pushMap((ReadableMap)b);
       }
       map.putArray("beacons", a);
       return map;
